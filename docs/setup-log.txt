@@ -1,0 +1,41 @@
+## Macbook:
+## Environment
+- OS: macOS
+- Python: 3.15
+- PySide6: 6.12.0, installed via apt (python3-pyside6.qtwidgets)
+- Qt runtime: 6.10.2
+- Editor: PyCharm
+## Steps:
+1. PyCharm: create new folder & python file
+2. Settings -> Python -> Interpreter
+3. Click + sign
+4. Search for pyside6
+5. Install package
+6. Reset PyCharm
+
+## Kubuntu (Dell):
+## Environment
+- OS: Kubuntu 26.04 LTS, KDE Plasma (Wayland session)
+- Python: 3.14.4 (system, /usr/bin/python3)
+- PySide6: 6.10.2, installed via apt (python3-pyside6.qtwidgets)
+- Qt runtime: 6.10.2
+- Editor: VSCodium
+## Steps:
+1. Check Python `python3 --version` → 3.14.4
+2. Install PySide6
+   `sudo apt install python3-pyside6.qtwidgets`
+   (pulls in qtcore and qtgui as dependencies)
+3. Confirm the import and install location
+   `python3 -c "import PySide6; print(PySide6.__version__, PySide6.__file__)"`
+   → 6.10.2 /usr/lib/python3/dist-packages/PySide6/
+4. Confirm Qt can open a window
+   `python3 qtcheck.py` → platform plugin: wayland, window opened, PASS
+5. Run the apps
+   `python3 Hello/hello.py`
+   `python3 HabitTracker/habit_tracker.py`
+## Blockers
+| Problem | Cause | Fix |
+|---|---|---|
+| VSCodium "Create Environment" failed: `spawn ./.venv/bin/python ENOENT` | Picked the venv's own (not yet created) interpreter as the base | Create venvs from the terminal instead. Final setup uses the apt PySide6 with no venv |
+| `qtcheck.py: command not found` | A .py file isn't an executable on $PATH | Run it through Python: `python3 qtcheck.py` |
+| `Invalid value (0) for DRI_PRIME` on every launch | Mesa GPU variable on hybrid graphics (Iris Xe + RTX 3050) | Cosmetic, app runs fine. Left as-is |
