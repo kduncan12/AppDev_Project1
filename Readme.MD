@@ -97,5 +97,6 @@ python3 HabitTracker/habit_tracker.py
 ---
 
 ## Documentation
+[`docs/RESEARCH-LOG.MD`](docs/RESEARCH-LOG.md) - sources read while choosing the framework, with takeaways and time spent
 
-The setup log — tools, ordered install steps, and blockers hit with their fixes — is in [`docs/setup-log.txt`](docs/setup-log.txt).
+[`docs/setup-log.txt`](docs/setup-log.txt) - The setup log; includes tools, ordered install steps, and blockers hit with their fixes.
